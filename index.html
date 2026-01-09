@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Paul Khoury - Portfolio</title>
+<style>
+    body {
+        font-family: sans-serif;
+        background-color: white;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        display: flex;
+        min-height: 100vh;
+    }
+    a {
+        color: #0645ad;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Left navbar */
+    nav {
+        background-color: white;
+        width: 15%;
+        padding: 75px 40px 40px 50px; /* extra top padding for "Contents" */
+        box-sizing: border-box;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+    }
+    nav h3 {
+		font-size: 1em;
+		margin-top: 0;
+		margin-bottom: 10px;
+		background-color: transparent;
+		padding-bottom: 4px;
+		border-bottom: 1px solid #ccc; /* divider line */
+	}
+	
+    nav ol {
+        padding-left: 20px;
+    }
+
+    /* Main content container */
+    .main-container {
+        display: flex;
+        width: 89%;
+    }
+    .article {
+        width: 85%; /* widened from 70% */
+        padding: 20px;
+        max-width: 980px;
+        position: relative;
+    }
+
+    /* Header */
+    /* Horizontal line under main title */
+	header h1 {
+		margin: 0;
+		font-size: 2.2em;      /* slightly larger */
+		font-weight: normal;   /* remove bold */
+		border-bottom: 1px solid #ccc;
+		padding-bottom: 4px;
+	}
+
+    header p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #555;
+    }
+
+    /* Infobox inside main content */
+    .infobox {
+        background-color: #f8f9fa;
+        border: 1px solid #a2a9b1;
+        padding: 10px 10px 10px 10px;
+        font-size: 0.9em;
+        width: 250px;
+        float: right;
+        margin: 80px 0 10px 20px; /* lowered from top */
+    }
+    .infobox h3 {
+        margin-top: 0;
+        background-color: #eaecf0;
+        padding: 5px;
+        text-align: center;
+        font-size: 1em;
+    }
+    .infobox img {
+        width: 200px;
+        background-color: #ddd;
+        display: block;
+        margin: 10px auto;
+        object-fit: cover;
+    }
+
+    /* Section headings */
+    .article h2 {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 3px;
+        margin-top: 30px;
+        font-size: 1.4em;
+        max-width: calc(100% - 290px); /* stop underline before bio box */
+    }
+
+    /* Right margin */
+    .right-margin {
+        width: 8%; /* reduced to allow more main content space */
+    }
+
+    /* Footer */
+    footer {
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #ccc;
+        font-size: 0.8em;
+        color: #555;
+        clear: both;
+    }
+
+    /* ===== Projects Photo Gallery (scoped to #projects) ===== */
+	#projects .photo-gallery {
+	  display: grid;
+	  grid-template-columns: repeat(3, 1fr); /* always 3 per row */
+	  gap: 18px;
+	  margin-top: 10px;
+	}
+
+	#projects .gallery-item {
+	  margin: 0;
+	}
+
+	#projects .gallery-item a {
+	  display: block;
+	  text-decoration: none;
+	}
+
+	#projects .gallery-item img {
+	  width: 100%;
+	  height: 190px;     /* same height across all */
+	  object-fit: cover; /* crops to fill */
+	  display: block;
+	}
+
+	#projects .gallery-item figcaption {
+	  margin-top: 10px;
+	  font-size: 0.98rem;
+	  line-height: 1.25rem;
+	  color: #202122;
+	}
+
+</style>
+</head>
+<body>
+
+<!-- Left navbar -->
+<nav>
+    <h3>Contents</h3>
+    <ol>
+        <li><a href="#intro">Home</a></li>
+		<li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+		<li><a href="#awards">Awards</a></li>
+		<li><a href="#leadership">Leadership</a></li>
+		<li><a href="#skills">Skills</a></li>
+		<li><a href=https://vsco.co/paulkhoury/gallery target="_blank">Photography↗</a></li>
+    </ol>
+</nav>
+
+<!-- Main content + right margin -->
+<div class="main-container">
+    <main class="article">
+		<section id="intro">
+			<!-- Infobox on the right inside main content -->
+			<aside class="infobox">
+				<h3>Paul Khoury</h3>
+				<img src="scholar_portrait.jpg" alt="Portrait">
+				<p><strong>Born:</strong> 2004 (age 21)</p>
+				<p><strong>Hometown:</strong> Brooklyn, NY</p>
+				<p><strong>Education:</strong><br> Rensselaer Polytechnic Institute (B.S. Mechanical Engineering, Cognitive Science minor)</p>
+				<p><strong>Website:</strong><br> <a href="#">khourypaul.com</a></p>
+			</aside>
+
+			<header>
+				<h1><span style="font-family: 'Georgia', serif;">Paul M. Khoury</span></h1>
+				<p>A personal engineering portfolio webpage inspired by Wikipedia, the free encyclopedia.</p>
+			</header>
+
+			<!-- Untitled intro paragraph -->
+			<p> Paul Khoury a fourth-year Mechanical Engineering student at RPI with a passion for developing technologies that have a meaningful, positive impact on people’s lives. 
+			
+			<p><strong>Focus areas:</strong></p>
+			  <ul>
+				<li>Surgical Robotics</li>
+				<li>EMG-controlled robotic prosthetics</li>
+				<li>Assistive Tech</li>
+				<li>Medical device manufacturing</li>
+			  </ul>
+			
+			<p>  This desire to develop life-enhancing technologies as an engineer has guided and continues to guide his career
+	trajectory. </p>
+		</section>
+        <section id="about">
+            <h2>About</h2>
+			<section id="about">
+
+			  <p>Paul has worked in settings ranging from medical device manufacturing to computational biomechanics research to haptic system development for EMG-controlled pediatric prosthetics. These roles reflect his focus on patient-centered innovation and advancing healthcare.</p>
+
+			  <p>His minor in Cognitive Science—initially a way to explore a secondary interest in linguistics—sparked a deeper curiosity about human-machine interaction and how people perceive, adapt to, and benefit from technologies.</p>
+
+			  <p>Overall, Paul thrives on learning new tools, software, and hands-on skills, and embraces any opportunity for growth. Beyond engineering, he enjoys mentoring fellow engineers, studying foreign languages, cooking for his roommates, film photography, swimming, and lifting.</p>
+
+
+            <p><a href="Paul_Khoury_Resume.pdf" download>Download CV</a></p>
+			<p><a href="Paul_Khoury_Portfolio_Presentation.pdf" download>Download Portfolio Slide Deck</a></p>
+        </section>
+
+        <section id="projects">
+		  <h2>Projects</h2>
+
+		  <div class="photo-gallery">
+			<figure class="gallery-item">
+			  <a href="haptics.html">
+				<img src="haptics_arm.jpg" alt="Haptics for Sensory Feedback in Pediatric Prosthetics">
+			  </a>
+			  <figcaption>Haptics for Sensory Feedback in Pediatric Prosthetics</figcaption>
+			</figure>
+
+			<figure class="gallery-item">
+			  <a href="robot_arm.html">
+				<img src="robot1.jpg" alt="“Threading the Loop” – Laparoscopic Surgical Skill with Robot Arm">
+			  </a>
+			  <figcaption>“Threading the Loop” – Laparoscopic Surgical Skill with Robot Arm</figcaption>
+			</figure>
+
+			<figure class="gallery-item">
+			  <a href="mech_design.html">
+				<img src="mech_design.jpg" alt="Mechanical Design + CAD with SolidWorks/NX">
+			  </a>
+			  <figcaption>Mechanical Design + CAD with SolidWorks/NX</figcaption>
+			</figure>
+
+			<figure class="gallery-item">
+			  <a href="six_sigma.html">
+				<img src="6_1.jpg" alt="Six Sigma O-Ring Failure Investigation">
+			  </a>
+			  <figcaption>Six Sigma O-Ring Failure Investigation</figcaption>
+			</figure>
+
+			<figure class="gallery-item">
+			  <a href="ml.html">
+				<img src="ml_thumbnail.png" alt="Predicting User Intent from EMG Signals using ML">
+			  </a>
+			  <figcaption>Predicting User Intent from EMG Signals using ML</figcaption>
+			</figure>
+
+			<figure class="gallery-item">
+			  <a href="hip.html">
+				<img src="hip.png" alt="Finite Element Modeling of Pelvic Fracture Fixation">
+			  </a>
+			  <figcaption>Finite Element Modeling of Pelvic Fracture Fixation</figcaption>
+			</figure>
+
+			<figure class="gallery-item">
+			  <a href="rtr.html">
+				<img src="room_2.jpg" alt="Project “Read the Room”, An Ambient Feedback Glove for visually impaired">
+			  </a>
+			  <figcaption>Project “Read the Room”, An Ambient Feedback Glove for visually impaired</figcaption>
+			</figure>
+
+			<figure class="gallery-item">
+			  <a href="capstone.html">
+				<img src="push_push.png" alt="Senior Capstone: Redesigning VHC Assembly to Eliminate Foreign Object Debris">
+			  </a>
+			  <figcaption>Senior Capstone: Redesigning VHC Assembly to Eliminate Foreign Object Debris</figcaption>
+			</figure>
+
+			<figure class="gallery-item">
+			  <a href="cfd.html">
+				<img src="trip_airfoil.jpg" alt="CFD Analysis of high-camber inverted triple airfoil">
+			  </a>
+			  <figcaption>CFD Analysis of high-camber inverted triple airfoil</figcaption>
+			</figure>
+
+			<figure class="gallery-item">
+			  <a href="medallion.html">
+				<img src="medallion.jpg" alt="Custom Bronze Medallion">
+			  </a>
+			  <figcaption>Custom Bronze Medallion</figcaption>
+			</figure>
+
+			<figure class="gallery-item">
+			  <a href="bracket.html">
+				<img src="bracket_thumbnail.jpg" alt="Historic Façade Restoration">
+			  </a>
+			  <figcaption>Historic Façade Restoration</figcaption>
+			</figure>
+
+			<figure class="gallery-item">
+			  <a href="catan.html">
+				<img src="catan_background.jpg" alt="Catan Board Redesign (WIP)">
+			  </a>
+			  <figcaption>Catan Board Redesign (WIP)</figcaption>
+			</figure>
+
+			<figure class="gallery-item">
+			  <a href="ps.html">
+				<img src="ps2.png" alt="Public Speaking">
+			  </a>
+			  <figcaption>Public Speaking</figcaption>
+			</figure>
+		  </div>
+		</section>
+
+
+		<section id="experience">
+            <h2>Experience</h2>
+			<ul>
+				<li><strong>R&D Intern – Limbitless Solutions</strong> – Designed wearable vibrotactile arrays for pediatric prosthetics; led human-subjects protocol and presented findings.</li>
+				<li><strong>Co-op Engineer – Medline (NAMIC Division)</strong> – Built custom automation systems, improved cleanroom compliance, enhanced safety, and resolved product performance issues.</li>
+				<li><strong>Undergraduate Researcher – RPI LACEs Lab</strong> – Modeled pelvic fractures to evaluate surgical fixtures in collaboration with a physician.</li>
+				<li><strong>Laboratory Intern – NYS Institute for Basic Research</strong> – Automated assays with Arduino and studied neurodevelopmental impacts of toxins and psychoactive compounds.</li>
+				<li><strong>Product Team Lead – Zalpha</strong> – Directed UX design and testing for an investing education mobile app.</li>
+				<li><strong>Student Research Participant – Weill Cornell Medicine</strong> – Supported genomic research on Covid-19 and Alzheimer’s, analyzing disparities in carcinogen exposure.</li>
+			</ul>
+        </section>
+
+		<section id="awards">
+		  <h2>Awards</h2>
+		  <ul>
+			<li>
+			  <strong><a href = "https://www.youtube.com/watch?v=pWDounM36wU" target="_blank">Founders Award of Excellence</a></strong> – Troy, NY <span style="float:right;">Oct. 2025</span><br>
+			  One of Rensselaer’s highest and most prestigious distinctions, recognizing exceptional academic excellence, leadership, and creativity among students and faculty.
+			</li>
+			<li>
+			  <strong><a href = "https://severinocenter.rpi.edu/announcements/problem-pitch-competition-friday-december-13-2024" target="_blank">RPI Problem Pitch Competition </a> — 1st Place</strong> – Troy, NY <span style="float:right;">Dec. 2024</span><br>
+			  Awarded first place in an institute-wide competition for delivering a persuasive presentation on the underutilization of nuclear waste and the potential of spent nuclear fuel.
+			</li>
+			<li>
+			  <strong><a href = "https://www.lee.foundation/" target="_blank">Patrick P. Lee Foundation Scholar</a></strong> – Rochester, NY <span style="float:right;">Sept. 2024</span><br>
+			  Scholarship awarded for outstanding scholarship, integrity, leadership, and service.
+			</li>
+		  </ul>
+		</section>
+
+		<section id="leadership">
+		  <h2>Leadership &amp; Volunteering</h2>
+		  <ul>
+			<li>President, <a href="https://sites.google.com/view/rpistugov/undergraduate-council?authuser=0" target="_blank">RPI Undergraduate Council</a></li>
+			<li>Project Team Member, <a href="https://rpibmes.design.blog/" target="_blank">RPI Biomedical Engineering Society</a></li>
+			<li>Volunteer Dispatcher, <a href="https://bravoambulance.org/" target="_blank">BRAVO Volunteer Ambulance</a> — Brooklyn, NY</li> 
+			<li>Lector, <a href="https://rensselaernewman.org/ccc/" target="_blank"> RPI University Chapel &amp; Cultural Center</a></li>
+			<li>Third Degree Knight, <a href="https://koc.union.rpi.edu/" target="_blank">Knights of Columbus Council #13635</a></li>
+		  </ul>
+		 
+		</section>
+		
+		<section id="skills">
+		  <h2>Skills &amp; Certifications</h2>
+		  <ul>
+			<li>Siemens NX; AutoCAD (Certified User)</li>
+			<li>SOLIDWORKS CAD Design Associate (CSWA)</li>
+			<li>Six Sigma Green Belt (Error Reduction &amp; Process Improvement)</li>
+			<li>MATLAB &amp; Simulink</li>
+			<li>PLC Programming; LTspice</li>
+			<li>Microsoft Excel &amp; Office 365 Suite</li>
+			<li>Abaqus FEA; HyperMesh CFD</li>
+			<li>Machine Learning Engineering with Python</li>
+			<li>Conversational proficiency in Polish; classroom-study proficiency in Russian</li>
+			<li>CITI Research, Ethics, Compliance, and Safety Training</li>
+		  </ul>
+		</section>
+
+
+
+        <footer>
+            This site’s styling and layout were inspired by <a href="https://wikipedia.org">Wikipedia</a>. This portfolio is intended as a tongue-in-cheek homage and is not affiliated with Wikipedia or the Wikimedia Foundation.
+        </footer>
+    </main>
+
+    <!-- Right white space -->
+    <div class="right-margin"></div>
+</div>
+
+</body>
+
+<!-- MODAL SLIDESHOWS -->
+<style>
+/* Modal overlay */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.8); 
+}
+
+/* Modal content container */
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  max-width: 800px;
+  max-height: 80vh;       /* Limit height to 80% of viewport */
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  overflow-y: auto;       /* Enable vertical scroll */
+}
+
+/* Slide container */
+.slide {
+  display: none;
+  text-align: center;
+}
+
+.slide img {
+  max-width: 100%;
+  height: auto;
+  min-height: 200px;   /* ensures visibility */
+  margin-bottom: 10px;
+}
+
+.slide iframe {
+  width: 100%;
+  height: 500px;          /* Enough height to see the PDF */
+  border: none;
+}
+
+.caption {
+  font-size: 0.9em;
+  color: #333;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Prev/Next buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 10px;
+  color: #333;
+  font-weight: bold;
+  font-size: 24px;
+  user-select: none;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.7);
+  transform: translateY(-50%);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+</style>
+
+<!-- Modals for Projects -->
+<div id="modal-haptics" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+	<div class="slide"><iframe src="haptics_report.pdf" width="600" height="400"></iframe><p class="caption">3D model PDF</p></div>
+	<div class="slide"><img src="haptics_arm.png"><p class="caption">Prototype</p></div>
+    <div class="slide"><img src="armmapping.png" alt="Haptics slide 1"><p class="caption">Haptics slide 1</p></div>
+    <div class="slide"><img src="pcb_schematic.png"><p class="caption">Haptics slide 2</p></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+</div>
+
+<div id="modal-ml" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="slide"><img src="ml1.jpg"><p class="caption">ML slide 1</p></div>
+    <div class="slide"><iframe src="ml_paper.pdf" width="600" height="400"></iframe><p class="caption">ML PDF slide</p></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+</div>
+
+<div id="modal-readroom" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="slide"><img src="readroom1.jpg"><p class="caption">Read the Room slide 1</p></div>
+    <div class="slide"><img src="readroom2.jpg"><p class="caption">Read the Room slide 2</p></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+</div>
+
+<div id="modal-bonemodel" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="slide"><img src="urp_poster.png"><p class="caption">Bone modeling slide</p></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+</div>
+
+<!-- Modals for Art/Just For Fun -->
+<div id="modal-joff" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="slide"><img src="joff1.jpg"><p class="caption">Joff medal slide</p></div>
+    <div class="slide"><img src="joff2.jpg"><p class="caption">Joff medal slide 2</p></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+</div>
+
+<div id="modal-facade" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="slide"><img src="facade1.jpg"><p class="caption">Facade restoration slide 1</p></div>
+    <div class="slide"><img src="facade2.jpg"><p class="caption">Facade restoration slide 2</p></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+</div>
+
+<div id="modal-train" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="slide"><img src="train1.jpg"><p class="caption">Train Time Display slide 1</p></div>
+    <div class="slide"><img src="train2.jpg"><p class="caption">Train Time Display slide 2</p></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+</div>
+
+<div id="modal-ladano" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="slide"><img src="ladano1.jpg"><p class="caption">Ladano Procedurally Generated Conlang</p></div>
+    <div class="slide"><iframe src="ladano_doc.pdf" width="600" height="400"></iframe><p class="caption">Ladano PDF slide</p></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+</div>
+
+<!-- JS for modal functionality -->
+<script>
+const projects = [
+  {bulletText: "Haptics Project", modalId: "modal-haptics"},
+  {bulletText: "ML EMG classification project", modalId: "modal-ml"},
+  {bulletText: 'Project “Read the Room” (WIP)', modalId: "modal-readroom"},
+  {bulletText: "Bone modeling URP (add poster and 3D model)", modalId: "modal-bonemodel"},
+  {bulletText: "Joff medal", modalId: "modal-joff"},
+  {bulletText: "Facade restoriation", modalId: "modal-facade"},
+  {bulletText: "Train Time Desktop Display", modalId: "modal-train"},
+  {bulletText: "Ladano Smart Prosthetic Feedback System", modalId: "modal-ladano"}
+];
+
+// Attach click events to bullets
+document.querySelectorAll('#projects ul li').forEach(li => {
+  const project = projects.find(p => p.bulletText === li.textContent.trim());
+  if(project){
+    li.style.cursor = 'pointer';
+    li.addEventListener('click', () => openModal(project.modalId));
+  }
+});
+
+function openModal(id){
+  const modal = document.getElementById(id);
+  modal.style.display = 'block';
+  
+  const slides = modal.querySelectorAll('.slide');
+  let slideIndex = 0;
+
+  function showSlide(n){
+    slideIndex = n;
+    slides.forEach((s,i)=> s.style.display = (i===slideIndex ? 'block' : 'none'));
+  }
+
+  // Initialize first slide
+  showSlide(0);
+
+  // Prev/Next buttons
+  const prev = modal.querySelector('.prev');
+  const next = modal.querySelector('.next');
+  prev.onclick = ()=> showSlide((slideIndex-1+slides.length)%slides.length);
+  next.onclick = ()=> showSlide((slideIndex+1)%slides.length);
+}
+
+// Close modal
+document.querySelectorAll('.modal .close').forEach(span => {
+  span.onclick = () => { span.closest('.modal').style.display = 'none'; }
+});
+
+// Navigate slides
+document.querySelectorAll('.modal').forEach(modal => {
+  let slideIndex = 0;
+  const slides = modal.querySelectorAll('.slide');
+  const prev = modal.querySelector('.prev');
+  const next = modal.querySelector('.next');
+
+  function showSlide(modal, n){
+    slideIndex = n;
+    slides.forEach((s,i) => s.style.display = i===n ? 'block' : 'none');
+  }
+
+  prev.onclick = () => { showSlide(modal, (slideIndex-1+slides.length)%slides.length); }
+  next.onclick = () => { showSlide(modal, (slideIndex+1)%slides.length); }
+
+  modal.showSlide = showSlide;
+});
+
+function showSlide(modal, n){
+  if(modal.showSlide) modal.showSlide(n);
+}
+
+// Close modal if clicking outside content
+window.onclick = function(event) {
+  if(event.target.classList.contains('modal')){
+    event.target.style.display = "none";
+  }
+}
+</script>
+
+</html>

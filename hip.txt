@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Paul Khoury - Portfolio</title>
+<style>
+    body {
+        font-family: sans-serif;
+        background-color: white;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        display: flex;
+        min-height: 100vh;
+    }
+    a {
+        color: #0645ad;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Left navbar */
+    nav {
+        background-color: white;
+        width: 15%;
+        padding: 75px 40px 40px 50px; /* extra top padding for "Contents" */
+        box-sizing: border-box;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+    }
+    nav h3 {
+        font-size: 1em;
+        margin-top: 0;
+        margin-bottom: 10px;
+        background-color: transparent;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ccc; /* divider line */
+    }
+
+    nav ol {
+        padding-left: 20px;
+    }
+
+    /* Main content container */
+    .main-container {
+        display: flex;
+        width: 89%;
+    }
+    .article {
+        width: 85%; /* widened from 70% */
+        padding: 20px;
+        max-width: 980px;
+        position: relative;
+    }
+
+    /* Header */
+    header h1 {
+        margin: 0;
+        font-size: 2.2em;      /* slightly larger */
+        font-weight: normal;   /* remove bold */
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 4px;
+    }
+
+    header p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #555;
+    }
+
+    /* Infobox inside main content */
+    .infobox {
+        background-color: #f8f9fa;
+        border: 1px solid #a2a9b1;
+        padding: 10px;
+        font-size: 0.9em;
+
+        /* ~55% of the body width (right side of the page, not counting nav) */
+        width: 55%;
+
+        float: right;
+        margin: 80px 0 10px 20px; /* lowered from top */
+        box-sizing: border-box;
+    }
+    .infobox h3 {
+        margin-top: 0;
+        background-color: #eaecf0;
+        padding: 5px;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    /* Carousel */
+    .carousel {
+        position: relative;
+        overflow: hidden;
+        margin: 10px auto;
+        width: 100%;
+    }
+
+    .carousel-track {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 6px 2px 10px 2px;
+    }
+
+    /* Hide scrollbar (still scrollable) */
+    .carousel-track::-webkit-scrollbar { height: 0; }
+    .carousel-track { scrollbar-width: none; }
+
+    .carousel-slide {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+    }
+
+    /* Fixed height, variable width */
+    .carousel-slide img {
+        height: 290px;
+        width: auto;
+        display: block;
+        object-fit: cover;
+        background-color: #ddd;
+        border: 1px solid #c8ccd1;
+        cursor: pointer; /* shows it’s clickable */
+    }
+
+    /* Prev/Next buttons */
+    .carousel-btn {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        user-select: none;
+        background: rgba(255,255,255,0.85);
+        border: 1px solid #c8ccd1;
+        border-radius: 3px;
+        padding: 6px 8px;
+        font-size: 16px;
+        color: #333;
+    }
+    .carousel-btn.prev { left: 8px; }
+    .carousel-btn.next { right: 8px; }
+
+    /* Right margin */
+    .right-margin {
+        width: 8%;
+    }
+
+    /* Footer */
+    footer {
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #ccc;
+        font-size: 0.8em;
+        color: #555;
+        clear: both;
+    }
+
+    /* Blank slate section placeholder */
+    .blank-slate {
+        margin-top: 18px;
+    }
+
+    /* ===== Modal (lightbox) ===== */
+    .img-modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.77);
+        padding: 30px;
+        box-sizing: border-box;
+    }
+
+    .img-modal.open {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .img-modal-content {
+        position: relative;
+        max-width: 70vw;
+        max-height: 70vh;
+		transform: translateY(-6%);
+    }
+
+    .img-modal-content img {
+        max-width: 70vw;
+        max-height: 70vh;
+        width: auto;
+        height: auto;
+        display: block;
+        background: #fff;
+    }
+
+    .img-modal-close {
+        position: absolute;
+        top: -14px;
+        right: -14px;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1px solid #c8ccd1;
+        background: rgba(255,255,255,0.95);
+        color: #333;
+        font-size: 22px;
+        line-height: 32px;
+        text-align: center;
+        cursor: pointer;
+        user-select: none;
+    }
+	.img-modal-caption {
+		margin-top: 10px;
+		font-size: 0.9rem;
+		color: #f0f0f0;
+		text-align: center;
+		max-width: 100ch;
+	}
+
+</style>
+</head>
+<body>
+
+<!-- Left navbar -->
+<nav>
+    <h3>Contents</h3>
+    <ol>
+        <li><a href="portfolio.html#intro">Home</a></li>
+        <li><a href="portfolio.html#about">About</a></li>
+        <li><a href="portfolio.html#experience">Experience</a></li>
+        <li><a href="portfolio.html#projects">Projects</a></li>
+        <li><a href="portfolio.html#awards">Awards</a></li>
+        <li><a href="portfolio.html#leadership">Leadership</a></li>
+        <li><a href="portfolio.html#skills">Skills</a></li>
+        <li><a href="https://vsco.co/paulkhoury/gallery" target="_blank">Photography↗</a></li>
+    </ol>
+</nav>
+
+<!-- Main content + right margin -->
+<div class="main-container">
+    <main class="article">
+        <section id="intro">
+            <!-- Infobox on the right inside main content -->
+            <aside class="infobox">
+                <h3>Image Gallery</h3>
+
+                <div class="carousel" aria-label="Image carousel">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Replace these with your real images -->
+                        <div class="carousel-slide"><img src="urp_poster.png" alt="image 1" data-caption=""></div>
+						
+                    </div>
+
+                    <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous image">&#10094;</button>
+                    <button class="carousel-btn next" id="carouselNext" aria-label="Next image">&#10095;</button>
+				
+                </div>
+				<p>
+					Click any image to view it at full resolution with additional context.
+				</p>
+            </aside>
+
+            <header>
+                <h1><span style="font-family: 'Georgia', serif;">Paul M. Khoury</span></h1>
+                <p>A personal engineering portfolio webpage inspired by Wikipedia, the free encyclopedia.</p>
+            </header>
+
+            <div class="blank-slate">
+                <h2>Finite Element Modeling of Pelvic Fracture Fixation</h2>
+				<p>The purpose of this present research is to investigate the effects of screw diameter and placement on the mechanical stability and stresses experienced in/around pelvic vertical shear fractures stabilized by threaded rods.</p>
+<p>Pelvic vertical shear fractures are serious injuries often associated with high-energy trauma such as motor vehicle accidents or falls from a height. Auto-pedestrian crashes are the most common mechanism of injury, followed by falls. Older people are more susceptible to such injuries due to weakened bones/osteoporosis characterized by a decrease in bone density and reduced density of bone minerals such as calcium. Furthermore, balance issues commonly associated with the elderly render this population particularly susceptible to trips and falls.</p> 
+<p>While pelvic vertical shear fractures are a relatively uncommon form of skeletal injury, they result in significant morbidity and mortality, and have a substantial negative economic impact. The mean hospital stay for those with the injury was just over two weeks at 14.4 days [16]. Furthermore, in 2015 it was found that the average cost to the patient hospitalized for this injury was over 30,000 dollars, 60% of which came as a result of absence from work during convalescence. [17]</p>
+<p>Methods used to enable bone recovery and healing fall under one of two main categories: external fixation methods such as casts or braces, and internal fixation methods involving metal plates and/or screws [1]. Transsacral-transiliac rod/screw fixation is an example of the latter and is a common and effective surgical intervention for patients with a pelvic vertical shear fracture. The primary goal of this procedure is to stabilize the fractured pelvis in order to restore alignment and promote healing of the bone. Screws provide the necessary interfragmentary compression [2] for the duration of the healing process but remain there even after the bone has healed. While the procedure is generally effective, patients may experience complications such as pain while walking, healing in a deformed position (malunion), not healing (malunion), or even failure of the hardware [3].</p>
+<p>Regis L. Renard, M.D., an orthopedic traumatologist at the University of Arkansas who specializes in pelvic and acetabular fractures, proposed that increasing the diameter of the screw used may reduce these risks. Dr. Renard theorizes that a sufficient increase in the diameter of the top transsacral screw would create a firmer and stiffer fixation. This is because a thicker screw would necessarily partially thread itself through cortical bone or compress the cancellous bone against the cortical bone. Cancellous bone, named for its porous structure, forms the inside of most bones. It is softer and spongier relative to cortical bone, which is stronger and denser and forms the outer layer of most bones.</p>
+<p>In 2021, Shannon, MD, et al. [2] compared the mechanical effectiveness of screws with different lengths of threading rather than different screws with varying diameters. Utilizing physical cadaver models in their experimental investigations, they concluded that fully threaded screw fixation was mechanically superior to partially threaded screws.</p>
+<p>In a more similar fashion to the present approach, Nasrullah et al. [4] employed a numerical simulation technique - Finite Element Analysis. This research explored the impact of screw diameter on the fracture healing process in a plated transverse femoral fracture. Their study diverged from ours in that it incorporated a plate within its model and focused on femoral fractures rather than pelvic fractures. Furthermore, this simulation utilized visibly fewer elements. </p>
+<p>Additionally, Ma et al. [5] also employed Finite Element Analysis to explore the effects of screw length and screw thickness on a bone model. The study concluded that a thicker screw could reduce stress on the surface of tibial defects and achieve better stability. Notably, this study did not focus on using screws for bone union after fractures but rather on treating defects or deformations, indicating a different purpose for the screws.</p>
+<p>Overall, this research is significant because it has the potential to improve patient outcomes by validating and endorsing a surgical practice that optimizes the effectiveness of sacroiliac rod fixation. For patients, this can mean reducing post-operative pain and the risk of repeat injury. </p>
+<p>For a detailed account of the methodology, the interested reader can find extensive documentation online (https://laces-lab.github.io/documentation/tutorials/febio/). 
+<p>A human pelvis model was obtained from LibHip, [6]. LibHip includes patient specific geometries derived from CT scans collected by The Cancer Imaging Archive. Model 11 (M11) was used in this experiment. M11 consists of an adult male (age  not reported) with no diseases related to the hip joint area. </p>
+<p>Processing in Autodesk Meshmixer (e.g. remeshing and offsetting) was performed to avoid overlapping geometry. Overlapping geometry refers to a situation where two or more surfaces or facets of the model intersect. It is best practice to minimize instances of overlapping as software may have difficulty determining how to resolve and calculate the interactions between overlapping elements. Next, the exported object file is transferred to Siemens NX, where adjustments, such as removing the right half of the sacrum for symmetry and adding a fracture, are made to the model. In this model, the fracture is a flat, vertical plane placed through the sacrum, to the right of the symmetry plane.</p>
+<p>Hole insertion is performed to allow placement of the screws. Holes are placed such that they are in the top half of the sacrum, do not penetrate the sacral foramina, but do penetrate through both the half-sacrum and the pelvic ring entirely. Furthermore, the two holes should be roughly but not exactly parallel to each other (~7° angle difference). The screw component is inserted into the model and aligned with the hole using assembly constraints. For this simulation, a 7.3 mm diameter cannular screw was modelled. Finally, the entire model is saved as a part file and exported as a Parasolid binary file for further pre-simulation processing.  </p>
+<p>To mesh the hip model, geometry file is imported into SimModeler.</p>
+				<p><a href="proj_prog_5_final_results.ipynb" download>Download Jupyter Notebook</a></p>
+            </div>
+        </section>
+
+        <footer>
+            This site’s styling and layout were inspired by <a href="https://wikipedia.org">Wikipedia</a>. This portfolio is intended as a tongue-in-cheek homage and is not affiliated with Wikipedia or the Wikimedia Foundation.
+        </footer>
+    </main>
+
+    <div class="right-margin"></div>
+</div>
+
+<!-- Modal -->
+<div class="img-modal" id="imgModal" aria-hidden="true">
+  <div class="img-modal-content" role="dialog" aria-modal="true" aria-label="Image preview">
+    <div class="img-modal-close" id="imgModalClose" aria-label="Close">&times;</div>
+    <img id="imgModalImage" src="" alt="">
+	<p class="img-modal-caption" id="imgModalCaption"></p>
+  </div>
+</div>
+
+<script>
+  // Carousel scroll buttons
+  const track = document.getElementById('carouselTrack');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+
+  function scrollByAmount(direction) {
+    const firstImg = track.querySelector('.carousel-slide img');
+    const imgWidth = firstImg ? firstImg.getBoundingClientRect().width : 300;
+    const gap = 10;
+    track.scrollBy({ left: direction * (imgWidth + gap), behavior: 'smooth' });
+  }
+
+  prevBtn.addEventListener('click', () => scrollByAmount(-1));
+  nextBtn.addEventListener('click', () => scrollByAmount(1));
+
+  // Modal logic
+  const modal = document.getElementById('imgModal');
+  const modalImg = document.getElementById('imgModalImage');
+  const modalClose = document.getElementById('imgModalClose');
+
+  // Open modal when any carousel image is clicked
+	const modalCaption = document.getElementById('imgModalCaption');
+
+	track.querySelectorAll('img').forEach(img => {
+	  img.addEventListener('click', () => {
+		modalImg.src = img.src;
+		modalImg.alt = img.alt || '';
+		modalCaption.textContent = img.dataset.caption || '';
+		modal.classList.add('open');
+		document.body.style.overflow = 'hidden';
+	  });
+	});
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modalImg.src = '';
+    modalCaption.textContent = '';
+    document.body.style.overflow = '';
+  }
+
+
+  // Close by X
+  modalClose.addEventListener('click', closeModal);
+
+  // Close by clicking outside the image (overlay)
+  modal.addEventListener('click', (e) => {
+    const clickedInside = e.target.closest('.img-modal-content');
+    if (!clickedInside) closeModal();
+  });
+
+  // Close with Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+</script>
+
+</body>
+</html>
