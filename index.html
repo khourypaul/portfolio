@@ -151,6 +151,60 @@
 	  line-height: 1.25rem;
 	  color: #202122;
 	}
+	
+		/* ===== Writing Section (5 per row) ===== */
+	#writing .photo-gallery-5 {
+	  display: grid;
+	  grid-template-columns: repeat(5, 1fr);
+	  gap: 14px;
+	  margin-top: 10px;
+	}
+	
+	#writing .gallery-item {
+	  margin: 0;
+	}
+	
+	#writing .gallery-item a {
+	  display: block;
+	  text-decoration: none;
+	}
+	
+	#writing .gallery-item img {
+	  width: 100%;
+	  height: 220px;
+	  object-fit: cover;
+	  border: 1px solid #ccc;
+	  display: block;
+	}
+	
+	#writing .gallery-item figcaption {
+	  margin-top: 8px;
+	  font-size: 0.9rem;
+	  line-height: 1.2rem;
+	  color: #202122;
+	}
+	
+	/* Placeholder tiles (personal projects in-progress, empty writing slot) */
+	.gallery-item.placeholder img,
+	.gallery-item.placeholder .placeholder-box {
+	  background-color: #f0f0f0;
+	  border: 1px dashed #aaa;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  color: #999;
+	  font-size: 0.85rem;
+	  text-align: center;
+	}
+	
+	/* Subsection headings inside Projects */
+	.article h3.subsection {
+	  font-size: 1.1em;
+	  margin-top: 25px;
+	  margin-bottom: 8px;
+	  color: #333;
+	  border-bottom: none;
+}
 
 </style>
 </head>
@@ -182,7 +236,7 @@
 				<img src="scholar_portrait1.jpg" alt="Portrait">
 				<p><strong>Born:</strong> 2004 (age 22)</p>
 				<p><strong>Hometown:</strong> Brooklyn, NY</p>
-				<p><strong>Education:</strong></p><p style="font-size: 0.65em><br> Rensselaer Polytechnic Institute (B.S. Mechanical Engineering, Cognitive Science minor) <br>Georgia Institute of Technology (MSME)</p>
+				<p><strong>Education:</strong></p><p style="font-size: 0.65em"><br> Rensselaer Polytechnic Institute (B.S. Mechanical Engineering, Cognitive Science minor) <br>Georgia Institute of Technology (MSME)</p>
 				<p><strong>Website:</strong><br> <a href="#">khourypaul.com</a></p>
 			</aside>
 
@@ -223,121 +277,189 @@
 
         <section id="projects">
 		  <h2>Projects</h2>
-
+		
+		  <h3 class="subsection" id="prof-academic">Professional &amp; Academic</h3>
 		  <div class="photo-gallery">
-			<figure class="gallery-item">
-			  <a href="haptics.html">
-				<img src="haptics_arm.jpg" alt="Haptics for Sensory Feedback in Pediatric Prosthetics">
-			  </a>
-			  <figcaption>Haptics for Sensory Feedback in Pediatric Prosthetics</figcaption>
-			</figure>
+		    <figure class="gallery-item">
+		      <a href="haptics.html">
+		        <img src="haptics_arm.jpg" alt="Haptics for Sensory Feedback in Pediatric Prosthetics">
+		      </a>
+		      <figcaption>Haptics for Sensory Feedback in Pediatric Prosthetics</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="robot_arm.html">
+		        <img src="robot1.jpg" alt="“Threading the Loop” – Laparoscopic Surgical Skill with Robot Arm">
+		      </a>
+		      <figcaption>“Threading the Loop” – Laparoscopic Surgical Skill with Robot Arm</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="mech_design.html">
+		        <img src="mech_design.jpg" alt="Mechanical Design + CAD with SolidWorks/NX">
+		      </a>
+		      <figcaption>Mechanical Design + CAD with SolidWorks/NX</figcaption>
+		    </figure>
 
 			<figure class="gallery-item">
-			  <a href="robot_arm.html">
-				<img src="robot1.jpg" alt="“Threading the Loop” – Laparoscopic Surgical Skill with Robot Arm">
-			  </a>
-			  <figcaption>“Threading the Loop” – Laparoscopic Surgical Skill with Robot Arm</figcaption>
-			</figure>
+		      <a href="six_sigma.html">
+		        <img src="6_1.jpg" alt="Six Sigma O-Ring Failure Investigation">
+		      </a>
+		      <figcaption>ME 4012 Advanced Control of Motion System Inverted Pendulum</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="ml.html">
+		        <img src="myothalmic.png" alt="Predicting User Intent from EMG Signals using ML">
+		      </a>
+		      <figcaption>Predicting User Intent from EMG Signals using ML</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="hip.html">
+		        <img src="hip.png" alt="Finite Element Modeling of Pelvic Fracture Fixation">
+		      </a>
+		      <figcaption>Finite Element Modeling of Pelvic Fracture Fixation</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="rtr.html">
+		        <img src="room_2.jpg" alt="Project “Read the Room”, An Ambient Feedback Glove for visually impaired">
+		      </a>
+		      <figcaption>Project “Read the Room”, An Ambient Feedback Glove for visually impaired</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="capstone.html">
+		        <img src="push_push.png" alt="Senior Capstone: Redesigning VHC Assembly to Eliminate Foreign Object Debris">
+		      </a>
+		      <figcaption>Senior Capstone: Redesigning VHC Assembly to Eliminate Foreign Object Debris</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="scrubnurse.html">
+		        <img src="Media1.jpg" alt="Robotic Scrub Nurse">
+		      </a>
+		      <figcaption>Robotic Scrub Nurse for Operating Room</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="windcatchertent.html">
+		        <img src="wind_catcher_tent_render.jpg" alt="Wind Catcher Tent Render">
+		      </a>
+		      <figcaption>Wind Catcher Tent</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="cfd.html">
+		        <img src="trip_airfoil.jpg" alt="CFD Analysis of high-camber inverted triple airfoil">
+		      </a>
+		      <figcaption>CFD Analysis of high-camber inverted triple airfoil</figcaption>
+		    </figure>
 
 			<figure class="gallery-item">
-			  <a href="mech_design.html">
-				<img src="mech_design.jpg" alt="Mechanical Design + CAD with SolidWorks/NX">
-			  </a>
-			  <figcaption>Mechanical Design + CAD with SolidWorks/NX</figcaption>
-			</figure>
+		      <a href="six_sigma.html">
+		        <img src="6_1.jpg" alt="Six Sigma O-Ring Failure Investigation">
+		      </a>
+		      <figcaption>Six Sigma O-Ring Failure Investigation</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="ps.html">
+		        <img src="ps2.png" alt="Public Speaking">
+		      </a>
+		      <figcaption>Public Speaking</figcaption>
+		    </figure>
+		  </div>
+		
+		  <h3 class="subsection" id="personal-projects">Personal Projects</h3>
+		  <div class="photo-gallery">
+		    <figure class="gallery-item">
+		      <a href="medallion.html">
+		        <img src="medallion.jpg" alt="Custom Bronze Medallion">
+		      </a>
+		      <figcaption>Custom Bronze Medallion</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="bracket.html">
+		        <img src="bracket_thumbnail.jpg" alt="Historic Façade Restoration">
+		      </a>
+		      <figcaption>Historic Façade Restoration</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="catan.html">
+		        <img src="catan1.jpg" alt="Catan Board Redesign (WIP)">
+		      </a>
+		      <figcaption>Catan Board Redesign (WIP)</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="mta.html">
+		        <img src="mta_5.JPG" alt="MTA Sign">
+		      </a>
+		      <figcaption>NYC Subway Live Update Board</figcaption>
+		    </figure>
 
-			<figure class="gallery-item">
-			  <a href="six_sigma.html">
-				<img src="6_1.jpg" alt="Six Sigma O-Ring Failure Investigation">
-			  </a>
-			  <figcaption>Six Sigma O-Ring Failure Investigation</figcaption>
-			</figure>
-
-			<figure class="gallery-item">
-			  <a href="ml.html">
-				<img src="myothalmic.png" alt="Predicting User Intent from EMG Signals using ML">
-			  </a>
-			  <figcaption>Predicting User Intent from EMG Signals using ML</figcaption>
-			</figure>
-
-			<figure class="gallery-item">
-			  <a href="hip.html">
-				<img src="hip.png" alt="Finite Element Modeling of Pelvic Fracture Fixation">
-			  </a>
-			  <figcaption>Finite Element Modeling of Pelvic Fracture Fixation</figcaption>
-			</figure>
-
-			<figure class="gallery-item">
-			  <a href="rtr.html">
-				<img src="room_2.jpg" alt="Project “Read the Room”, An Ambient Feedback Glove for visually impaired">
-			  </a>
-			  <figcaption>Project “Read the Room”, An Ambient Feedback Glove for visually impaired</figcaption>
-			</figure>
-
-			<figure class="gallery-item">
-			  <a href="capstone.html">
-				<img src="push_push.png" alt="Senior Capstone: Redesigning VHC Assembly to Eliminate Foreign Object Debris">
-			  </a>
-			  <figcaption>Senior Capstone: Redesigning VHC Assembly to Eliminate Foreign Object Debris</figcaption>
-			</figure>
-
-			<figure class="gallery-item">
-			  <a href="scrubnurse.html">
-				<img src="Media1.jpg" alt="Robotic Scrub Nurse">
-			  </a>
-			  <figcaption>Robotic Scrub Nurse for Operating Room</figcaption>
-			</figure>
-
-			<figure class="gallery-item">
-			  <a href="windcatchertent.html">
-				<img src="wind_catcher_tent_render.jpg" alt="Wind Catcher Tent Render">
-			  </a>
-			  <figcaption>Wind Catcher Tent</figcaption>
-			</figure>
+			<figure class="gallery-item placeholder">
+		      <div class="placeholder-box" style="width:100%; height:190px;">Coming soon</div>
+		      <figcaption>Lingua Incognita: A Word-Origin Guessing Game</figcaption>
+		    </figure>
 			  
-			<figure class="gallery-item">
-			  <a href="cfd.html">
-				<img src="trip_airfoil.jpg" alt="CFD Analysis of high-camber inverted triple airfoil">
-			  </a>
-			  <figcaption>CFD Analysis of high-camber inverted triple airfoil</figcaption>
-			</figure>
-
-			<figure class="gallery-item">
-			  <a href="medallion.html">
-				<img src="medallion.jpg" alt="Custom Bronze Medallion">
-			  </a>
-			  <figcaption>Custom Bronze Medallion</figcaption>
-			</figure>
-
-			<figure class="gallery-item">
-			  <a href="bracket.html">
-				<img src="bracket_thumbnail.jpg" alt="Historic Façade Restoration">
-			  </a>
-			  <figcaption>Historic Façade Restoration</figcaption>
-			</figure>
-
-			<figure class="gallery-item">
-			  <a href="catan.html">
-				<img src="catan1.jpg" alt="Catan Board Redesign (WIP)">
-			  </a>
-			  <figcaption>Catan Board Redesign (WIP)</figcaption>
-			</figure>
-
-			<figure class="gallery-item">
-			  <a href="ps.html">
-				<img src="ps2.png" alt="Public Speaking">
-			  </a>
-			  <figcaption>Public Speaking</figcaption>
-			</figure>
-
-			<figure class="gallery-item">
-			  <a href="mta.html">
-				<img src="mta_5.JPG" alt="MTA Sign">
-			  </a>
-			  <figcaption>NYC Subway Live Update Board</figcaption>
-			</figure>
+		    <figure class="gallery-item placeholder">
+		      <div class="placeholder-box" style="width:100%; height:190px;">Coming soon</div>
+		      <figcaption>Sound Symbolism Study Constructing an Artlang</figcaption>
+		    </figure>
+		
+		    
 		  </div>
 		</section>
+
+		<section id="writing">
+		  <h2>Writing</h2>
+		
+		  <div class="photo-gallery-5">
+		    <figure class="gallery-item">
+		      <a href="writing/staten_island_cancer.pdf" target="_blank">
+		        <img src="writing/thumbs/staten_island_thumb.jpg" alt="Investigation of the Environmental Risk Factors Associated with Abnormally Elevated Cancer Incidence on Staten Island, New York">
+		      </a>
+		      <figcaption>Investigation of the Environmental Risk Factors Associated with Abnormally Elevated Cancer Incidence on Staten Island, New York</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="writing/troy_amman_connection.pdf" target="_blank">
+		        <img src="writing/thumbs/troy_amman_thumb.jpg" alt="The Troy-Amman Connection: Rensselaer Polytechnic Institute and Prime Minister Hani Mulki">
+		      </a>
+		      <figcaption>The Troy-Amman Connection: RPI and Prime Minister Hani Mulki</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item">
+		      <a href="writing/traditional_design_principles.pdf" target="_blank">
+		        <img src="writing/thumbs/traditional_design_thumb.jpg" alt="The Case for Traditional Design Principles in the Built Environment">
+		      </a>
+		      <figcaption>The Case for Traditional Design Principles in the Built Environment</figcaption>
+		    </figure>
+		
+		    <figure class="gallery-item placeholder">
+		      <div class="placeholder-box" style="width:100%; height:220px;">Coming soon</div>
+		      <figcaption>Untitled — Writing Sample 4</figcaption>
+		    </figure>
+		  </div>
+		</section>
+			
+		<section id="experience">
+            <h2>Experience</h2>
+			<ul>
+				<li><strong>R&D Intern – b-ONE Ortho</strong> - Designed and validated pre-release surgical instruments and orthopedic implants—using GD&T, FEA, and physical testing while coordinating design changes with international teams and authoring test reports that supported FDA 510(k) clearance.</li>
+				<li><strong>NSF REU Research Intern – Limbitless Solutions</strong> – Designed wearable vibrotactile arrays for pediatric prosthetics; led human-subjects protocol and presented findings.</li>
+				<li><strong>Co-op Engineer – Medline (NAMIC Division)</strong> – Built custom automation systems, improved cleanroom compliance, enhanced safety, and resolved product performance issues.</li>
+				<li><strong>Undergraduate Researcher – RPI LACEs Lab</strong> – Modeled pelvic fractures to evaluate surgical fixtures in collaboration with a physician.</li>
+				<li><strong>Laboratory Intern – NYS Institute for Basic Research</strong> – Automated assays with Arduino and studied neurodevelopmental impacts of toxins and psychoactive compounds.</li>
+				<li><strong>Product Team Lead – Zalpha</strong> – Directed UX design and testing for an investing education mobile app.</li>
+				<li><strong>Student Research Participant – Weill Cornell Medicine</strong> – Supported genomic research on Covid-19 and Alzheimer’s, analyzing disparities in carcinogen exposure.</li>
+			</ul>
+        </section>
 
 
 		<section id="experience">
