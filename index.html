@@ -212,7 +212,6 @@
 	    border: 1px solid #a2a9b1;
 	    padding: 8px;
 	    width: 380px;
-	    float: right;
 	    margin: 0 0 10px 20px;
 	}
 	.map-box h3 {
@@ -572,11 +571,7 @@
 		<section id="contact">
 		  <h2>Contact</h2>
 
-			  <div class="map-box">
-			    <h3>Places I've Lived</h3>
-			    <div id="life-map"></div>
-			    <p class="caption">Brooklyn, NY · Troy, NY · Orlando, FL · Atlanta, GA</p>
-			  </div>
+			  
 			
 		  <table style="font-size: 0.95em; border-collapse: collapse;">
 		    <tr>
@@ -592,6 +587,13 @@
 		      <td style="padding: 4px 0;">Atlanta, GA</td>
 		    </tr>
 		  </table>
+
+			<div class="map-box">
+			    <h3>Places I've Lived</h3>
+			    <div id="life-map"></div>
+			    <p class="caption">Brooklyn, NY · Troy, NY · Orlando, FL · Atlanta, GA</p>
+			  </div>
+			
 		</section>
 
         <footer>
@@ -606,7 +608,7 @@
 <script>
   const lifeMap = L.map('life-map', {
     scrollWheelZoom: false
-  }).setView([33.5, -81], 4); // centers roughly on the eastern US, zoomed to show all 4 points
+  }).setView([33.5, -81], 3); // centers roughly on the eastern US, zoomed to show all 4 points
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors',
