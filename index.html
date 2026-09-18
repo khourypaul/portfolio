@@ -205,9 +205,39 @@
 	  margin-bottom: 8px;
 	  color: #333;
 	  border-bottom: none;
+
+    /* Contact map box, styled like the infobox */
+	.map-box {
+	    background-color: #f8f9fa;
+	    border: 1px solid #a2a9b1;
+	    padding: 8px;
+	    width: 280px;
+	    float: right;
+	    margin: 0 0 10px 20px;
+	}
+	.map-box h3 {
+	    margin-top: 0;
+	    background-color: #eaecf0;
+	    padding: 5px;
+	    text-align: center;
+	    font-size: 1em;
+	}
+	#life-map {
+	    width: 100%;
+	    height: 260px;
+	    border: 1px solid #ccc;
+	}
+	.map-box p.caption {
+	    font-size: 0.8em;
+	    color: #555;
+	    text-align: center;
+	    margin: 6px 0 0 0;
+	}
 }
 
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 
@@ -541,6 +571,13 @@
 
 		<section id="contact">
 		  <h2>Contact</h2>
+
+			  <div class="map-box">
+			    <h3>Places I've Lived</h3>
+			    <div id="life-map"></div>
+			    <p class="caption">Brooklyn, NY · Troy, NY · Orlando, FL · Atlanta, GA</p>
+			  </div>
+			
 		  <table style="font-size: 0.95em; border-collapse: collapse;">
 		    <tr>
 		      <td style="padding: 4px 10px 4px 0; vertical-align: top;"><strong>Email:</strong></td>
@@ -566,6 +603,27 @@
     <div class="right-margin"></div>
 </div>
 
+<script>
+  const lifeMap = L.map('life-map', {
+    scrollWheelZoom: false
+  }).setView([33.5, -81], 5); // centers roughly on the eastern US, zoomed to show all 4 points
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 18
+  }).addTo(lifeMap);
+
+  const places = [
+    { name: "Brooklyn, NY", coords: [40.6782, -73.9442] },
+    { name: "Troy, NY", coords: [42.7284, -73.6918] },
+    { name: "Orlando, FL", coords: [28.5383, -81.3792] },
+    { name: "Atlanta, GA", coords: [33.7490, -84.3880] }
+  ];
+
+  places.forEach(place => {
+    L.marker(place.coords).addTo(lifeMap).bindPopup(place.name);
+  });
+</script>
 </body>
 
 <!-- MODAL SLIDESHOWS -->
