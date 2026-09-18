@@ -208,11 +208,11 @@
 
     /* Contact map box, styled like the infobox */
 	.map-box {
-	    background-color: #f8f9fa;
-	    border: 1px solid #a2a9b1;
-	    padding: 8px;
-	    width: 380px;
-	    margin: 20 0 10px 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #a2a9b1;
+    padding: 8px;
+    width: 420px; /* widened to fit map + text side by side */
+    margin: 30px 0 10px 0;
 	}
 	.map-box h3 {
 	    margin-top: 0;
@@ -221,16 +221,22 @@
 	    text-align: center;
 	    font-size: 1em;
 	}
+	.map-box-content {
+	    display: flex;
+	    align-items: center;
+	    gap: 10px;
+	}
 	#life-map {
-	    width: 100%;
+	    width: 260px;
 	    height: 200px;
 	    border: 1px solid #ccc;
+	    flex-shrink: 0;
 	}
 	.map-box p.caption {
 	    font-size: 0.8em;
 	    color: #555;
-	    text-align: center;
-	    margin: 6px 0 0 0;
+	    margin: 0;
+	    text-align: left;
 	}
 }
 
@@ -590,10 +596,12 @@
 		   
 			<br>
 			<div class="map-box">
-			    <h3>Places I've Lived</h3>
+			  <h3>Places I've Lived</h3>
+			  <div class="map-box-content">
 			    <div id="life-map"></div>
-			    <p class="caption">Brooklyn, NY · Troy, NY · Orlando, FL · Atlanta, GA</p>
+			    <p class="caption">Brooklyn, NY<br>Troy, NY<br>Orlando, FL<br>Atlanta, GA</p>
 			  </div>
+			</div>
 			
 		</section>
 
