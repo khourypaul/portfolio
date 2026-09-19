@@ -633,6 +633,10 @@
   });
 
 	setTimeout(() => lifeMap.invalidateSize(), 100);
+
+	function zoomToCity(lat, lng, zoom) {
+	  lifeMap.setView([lat, lng], zoom, { animate: true });
+	}
 </script>
 </body>
 
