@@ -206,13 +206,12 @@
 	  color: #333;
 	  border-bottom: none;}
 
-    /* Contact map box, styled like the infobox */
-	.map-box {
+    .map-box {
     background-color: #f8f9fa;
     border: 1px solid #a2a9b1;
     padding: 8px;
-    width: 420px; /* widened to fit map + text side by side */
-    margin: 30px 0 10px 0;
+    width: 280px;
+    flex-shrink: 0;
 	}
 	.map-box h3 {
 	    margin-top: 0;
@@ -221,22 +220,22 @@
 	    text-align: center;
 	    font-size: 1em;
 	}
-	.map-box-content {
-	    display: flex;
-	    align-items: center;
-	    gap: 10px;
-	}
 	#life-map {
-	    width: 260px;
-	    height: 200px;
+	    width: 100%;
+	    height: 260px;
 	    border: 1px solid #ccc;
-	    flex-shrink: 0;
 	}
 	.map-box p.caption {
 	    font-size: 0.8em;
 	    color: #555;
-	    margin: 0;
-	    text-align: left;
+	    text-align: center;
+	    margin: 6px 0 0 0;
+	}
+	.contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 15px;
 	}
 }
 
@@ -576,33 +575,29 @@
 
 		<section id="contact">
 		  <h2>Contact</h2>
-
-			  
-			
-		  <table style="font-size: 0.95em; border-collapse: collapse;">
-		    <tr>
-		      <td style="padding: 4px 10px 4px 0; vertical-align: top;"><strong>Email:</strong></td>
-		      <td style="padding: 4px 0;"><a href="mailto:pkhoury1618@gmail.com">pkhoury1618@gmail.com</a></td>
-		    </tr>
-		    <tr>
-		      <td style="padding: 4px 10px 4px 0; vertical-align: top;"><strong>LinkedIn:</strong></td>
-		      <td style="padding: 4px 0;"><a href="https://www.linkedin.com/in/khoury-p" target="_blank">linkedin.com/in/khoury-p</a></td>
-		    </tr>
-		    <tr>
-		      <td style="padding: 4px 10px 4px 0; vertical-align: top;"><strong>Current Location:</strong></td>
-		      <td style="padding: 4px 0;">Atlanta, GA</td>
-		    </tr>
-		  </table>
-		   
-			<br>
-			<div class="map-box">
-			  <h3>Places I've Lived</h3>
-			  <div class="map-box-content">
-			    <div id="life-map"></div>
-			    <p class="caption">Brooklyn, NY<br>Troy, NY<br>Orlando, FL<br>Atlanta, GA</p>
-			  </div>
-			</div>
-			
+		
+		  <div class="contact-row">
+		    <div class="map-box">
+		      <h3>Places I've Lived</h3>
+		      <div id="life-map"></div>
+		      <p class="caption">Brooklyn, NY · Troy, NY · Orlando, FL · Atlanta, GA</p>
+		    </div>
+		
+		    <table style="font-size: 0.95em; border-collapse: collapse;">
+		      <tr>
+		        <td style="padding: 4px 10px 4px 0; vertical-align: top;"><strong>Email:</strong></td>
+		        <td style="padding: 4px 0;"><a href="mailto:pkhoury1618@gmail.com">pkhoury1618@gmail.com</a></td>
+		      </tr>
+		      <tr>
+		        <td style="padding: 4px 10px 4px 0; vertical-align: top;"><strong>LinkedIn:</strong></td>
+		        <td style="padding: 4px 0;"><a href="https://www.linkedin.com/in/khoury-p" target="_blank">linkedin.com/in/khoury-p</a></td>
+		      </tr>
+		      <tr>
+		        <td style="padding: 4px 10px 4px 0; vertical-align: top;"><strong>Current Location:</strong></td>
+		        <td style="padding: 4px 0;">Atlanta, GA</td>
+		      </tr>
+		    </table>
+		  </div>
 		</section>
 
         <footer>
@@ -634,250 +629,11 @@
   places.forEach(place => {
     L.marker(place.coords).addTo(lifeMap).bindPopup(place.name);
   });
+
+	setTimeout(() => lifeMap.invalidateSize(), 100);
 </script>
 </body>
 
-<!-- MODAL SLIDESHOWS -->
-<style>
-/* Modal overlay */
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.8); 
-}
-
-/* Modal content container */
-.modal-content {
-  position: relative;
-  margin: 5% auto;
-  max-width: 800px;
-  max-height: 80vh;       /* Limit height to 80% of viewport */
-  background: #fff;
-  padding: 20px;
-  border-radius: 6px;
-  overflow-y: auto;       /* Enable vertical scroll */
-}
-
-/* Slide container */
-.slide {
-  display: none;
-  text-align: center;
-}
-
-.slide img {
-  max-width: 100%;
-  height: auto;
-  min-height: 200px;   /* ensures visibility */
-  margin-bottom: 10px;
-}
-
-.slide iframe {
-  width: 100%;
-  height: 500px;          /* Enough height to see the PDF */
-  border: none;
-}
-
-.caption {
-  font-size: 0.9em;
-  color: #333;
-}
-
-/* Close button */
-.close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* Prev/Next buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  padding: 10px;
-  color: #333;
-  font-weight: bold;
-  font-size: 24px;
-  user-select: none;
-  border-radius: 3px;
-  background: rgba(255,255,255,0.7);
-  transform: translateY(-50%);
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
-</style>
-
-<!-- Modals for Projects -->
-<div id="modal-haptics" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-	<div class="slide"><iframe src="haptics_report.pdf" width="600" height="400"></iframe><p class="caption">3D model PDF</p></div>
-	<div class="slide"><img src="haptics_arm.png"><p class="caption">Prototype</p></div>
-    <div class="slide"><img src="armmapping.png" alt="Haptics slide 1"><p class="caption">Haptics slide 1</p></div>
-    <div class="slide"><img src="pcb_schematic.png"><p class="caption">Haptics slide 2</p></div>
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  </div>
-</div>
-
-<div id="modal-ml" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div class="slide"><img src="ml1.jpg"><p class="caption">ML slide 1</p></div>
-    <div class="slide"><iframe src="ml_paper.pdf" width="600" height="400"></iframe><p class="caption">ML PDF slide</p></div>
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  </div>
-</div>
-
-<div id="modal-readroom" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div class="slide"><img src="readroom1.jpg"><p class="caption">Read the Room slide 1</p></div>
-    <div class="slide"><img src="readroom2.jpg"><p class="caption">Read the Room slide 2</p></div>
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  </div>
-</div>
-
-<div id="modal-bonemodel" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div class="slide"><img src="urp_poster.png"><p class="caption">Bone modeling slide</p></div>
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  </div>
-</div>
-
-<!-- Modals for Art/Just For Fun -->
-<div id="modal-joff" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div class="slide"><img src="joff1.jpg"><p class="caption">Joff medal slide</p></div>
-    <div class="slide"><img src="joff2.jpg"><p class="caption">Joff medal slide 2</p></div>
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  </div>
-</div>
-
-<div id="modal-facade" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div class="slide"><img src="facade1.jpg"><p class="caption">Facade restoration slide 1</p></div>
-    <div class="slide"><img src="facade2.jpg"><p class="caption">Facade restoration slide 2</p></div>
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  </div>
-</div>
-
-<div id="modal-train" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div class="slide"><img src="train1.jpg"><p class="caption">Train Time Display slide 1</p></div>
-    <div class="slide"><img src="train2.jpg"><p class="caption">Train Time Display slide 2</p></div>
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  </div>
-</div>
-
-<div id="modal-ladano" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div class="slide"><img src="ladano1.jpg"><p class="caption">Ladano Procedurally Generated Conlang</p></div>
-    <div class="slide"><iframe src="ladano_doc.pdf" width="600" height="400"></iframe><p class="caption">Ladano PDF slide</p></div>
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  </div>
-</div>
-
-<!-- JS for modal functionality -->
-<script>
-const projects = [
-  {bulletText: "Haptics Project", modalId: "modal-haptics"},
-  {bulletText: "ML EMG classification project", modalId: "modal-ml"},
-  {bulletText: 'Project “Read the Room” (WIP)', modalId: "modal-readroom"},
-  {bulletText: "Bone modeling URP (add poster and 3D model)", modalId: "modal-bonemodel"},
-  {bulletText: "Joff medal", modalId: "modal-joff"},
-  {bulletText: "Facade restoriation", modalId: "modal-facade"},
-  {bulletText: "Train Time Desktop Display", modalId: "modal-train"},
-  {bulletText: "Ladano Smart Prosthetic Feedback System", modalId: "modal-ladano"}
-];
-
-// Attach click events to bullets
-document.querySelectorAll('#projects ul li').forEach(li => {
-  const project = projects.find(p => p.bulletText === li.textContent.trim());
-  if(project){
-    li.style.cursor = 'pointer';
-    li.addEventListener('click', () => openModal(project.modalId));
-  }
-});
-
-function openModal(id){
-  const modal = document.getElementById(id);
-  modal.style.display = 'block';
-  
-  const slides = modal.querySelectorAll('.slide');
-  let slideIndex = 0;
-
-  function showSlide(n){
-    slideIndex = n;
-    slides.forEach((s,i)=> s.style.display = (i===slideIndex ? 'block' : 'none'));
-  }
-
-  // Initialize first slide
-  showSlide(0);
-
-  // Prev/Next buttons
-  const prev = modal.querySelector('.prev');
-  const next = modal.querySelector('.next');
-  prev.onclick = ()=> showSlide((slideIndex-1+slides.length)%slides.length);
-  next.onclick = ()=> showSlide((slideIndex+1)%slides.length);
-}
-
-// Close modal
-document.querySelectorAll('.modal .close').forEach(span => {
-  span.onclick = () => { span.closest('.modal').style.display = 'none'; }
-});
-
-// Navigate slides
-document.querySelectorAll('.modal').forEach(modal => {
-  let slideIndex = 0;
-  const slides = modal.querySelectorAll('.slide');
-  const prev = modal.querySelector('.prev');
-  const next = modal.querySelector('.next');
-
-  function showSlide(modal, n){
-    slideIndex = n;
-    slides.forEach((s,i) => s.style.display = i===n ? 'block' : 'none');
-  }
-
-  prev.onclick = () => { showSlide(modal, (slideIndex-1+slides.length)%slides.length); }
-  next.onclick = () => { showSlide(modal, (slideIndex+1)%slides.length); }
-
-  modal.showSlide = showSlide;
-});
-
-function showSlide(modal, n){
-  if(modal.showSlide) modal.showSlide(n);
-}
-
-// Close modal if clicking outside content
-window.onclick = function(event) {
-  if(event.target.classList.contains('modal')){
-    event.target.style.display = "none";
-  }
-}
-</script>
 
 </html>
 
